@@ -1,11 +1,13 @@
 import struct
+
 import paho.mqtt.client as mqtt
 
+from constants import HOSTNAME, PORT, TIMEOUT, BMS_STATE_TOPIC
 from diag_led import alert_led, const_led
 
 
 def on_connect(client, userdata, flags, rc):
-    client.subscribe("bms/state")
+    client.subscribe(BMS_STATE_TOPIC)
 
 
 def on_message(client, userdata, msg):
@@ -40,7 +42,7 @@ def check_bms_responding(payload):
 client = mqtt.Client("Stick Data")
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("192.168.123.161", 1883, 60)
+client.connect(HOSTNAME, PORT, TIMEOUT)
 try:
     client.loop_forever()
 except:
