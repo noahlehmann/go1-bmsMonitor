@@ -29,5 +29,5 @@ else
 fi
 
 cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR"
-chmod +x "$(DIR)bmsMonitor/bmsMonitor.sh" "$(DIR)bmsMonitor/run.sh"
+chmod +x "$DIR/bmsMonitor/bmsMonitor.sh" "$DIR/bmsMonitor/run.sh"
 
