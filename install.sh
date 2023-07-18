@@ -29,6 +29,12 @@ else
   echo "bmsMonitor" >> "$DIR$STARTUP_FILE"
 fi
 
-chmod +x "$SCRIPT_DIR/bmsMonitor/bmsMonitor.sh" "$SCRIPT_DIR/bmsMonitor/run.sh"
-cp -rs "$SCRIPT_DIR/bmsMonitor" "$DIR"
 
+# remove folder, don't care if not there
+rm -r "$DIR/bmsMonitor" &> /dev/null
+# make symlinks to git repo
+cp -rs "$SCRIPT_DIR/bmsMonitor" "$DIR"
+# real copy of script as symlink won't work
+cp -f "$SCRIPT_DIR/bmsMonitor/bmsMonitor.template.sh" "$DIR/bmsMonitor/bmsMonitor.sh"
+# make scripts executable
+chmod +x "$DIR/bmsMonitor/bmsMonitor.sh" "$SCRIPT_DIR/bmsMonitor/run.sh"
