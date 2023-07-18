@@ -22,6 +22,6 @@ then
 fi
 
 echo "bmsMonitor" >> "$DIR/$STARTUP_FILE"
-cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR/bmsMonitor/"
+cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR/"
 chmod +x "$DIR/bmsMonitor/bmsMonitor.sh" "$DIR/bmsMonitor/run.sh"
 
