@@ -16,12 +16,18 @@ then
   exit 1
 fi
 
-if [ -f "$STARTUP_FILE" ];
+if [ -f "$DIR$STARTUP_FILE" ];
 then
   echo "$STARTUP_FILE was not found, exiting..."
 fi
 
-echo "bmsMonitor" >> "$DIR/$STARTUP_FILE"
-cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR/"
-chmod +x "$DIR/bmsMonitor/bmsMonitor.sh" "$DIR/bmsMonitor/run.sh"
+if grep -q "bmsMonitor" "$DIR$STARTUP_FILE" ;
+then
+  echo "bmsMonitor already in $STARTUP_FILE";
+else
+  echo "bmsMonitor" >> "$DIR$STARTUP_FILE"
+fi
+
+cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR"
+chmod +x "$(DIR)bmsMonitor/bmsMonitor.sh" "$(DIR)bmsMonitor/run.sh"
 
