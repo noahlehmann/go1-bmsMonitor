@@ -16,9 +16,10 @@ then
   exit 1
 fi
 
-if [ -f "$DIR$STARTUP_FILE" ];
+if [ -f "$STARTUP_FILE" ];
 then
   echo "$STARTUP_FILE was not found, exiting..."
+  exit 1
 fi
 
 if grep -q "bmsMonitor" "$DIR$STARTUP_FILE" ;
