@@ -21,8 +21,7 @@ then
   echo "$STARTUP_FILE was not found, exiting..."
 fi
 
-mkdir "$DIR/bmsMonitor"
 echo "bmsMonitor" >> "$DIR/$STARTUP_FILE"
-cp -r "$SCRIPT_DIR/bmsMonitor/*" "$DIR/bmsMonitor"
+cp -r "$SCRIPT_DIR/bmsMonitor/" "$DIR/bmsMonitor/"
 chmod +x "$DIR/bmsMonitor/bmsMonitor.sh" "$DIR/bmsMonitor/run.sh"
 
