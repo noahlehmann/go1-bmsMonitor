@@ -29,11 +29,6 @@ else
   echo "bmsMonitor" >> "$DIR$STARTUP_FILE"
 fi
 
-if ! [ -d "$DIR/bmsMonitor" ];
-then
-  mkdir "$DIR/bmsMonitor"
-fi
-
 chmod +x "$SCRIPT_DIR/bmsMonitor/bmsMonitor.sh" "$SCRIPT_DIR/bmsMonitor/run.sh"
 cp -rs "$SCRIPT_DIR/bmsMonitor" "$DIR"
 
